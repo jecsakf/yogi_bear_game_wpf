@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YogiBearGame", "YogiBearGame\YogiBearGame.csproj", "{CE60E0A7-7E69-4325-9E2B-EC16A46CD5C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YogiBearGameTest", "YogiBearGameTest\YogiBearGameTest.csproj", "{5E97330A-7CF4-472D-8E5B-3728BA2D83E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE60E0A7-7E69-4325-9E2B-EC16A46CD5C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE60E0A7-7E69-4325-9E2B-EC16A46CD5C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE60E0A7-7E69-4325-9E2B-EC16A46CD5C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE60E0A7-7E69-4325-9E2B-EC16A46CD5C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E97330A-7CF4-472D-8E5B-3728BA2D83E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E97330A-7CF4-472D-8E5B-3728BA2D83E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E97330A-7CF4-472D-8E5B-3728BA2D83E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E97330A-7CF4-472D-8E5B-3728BA2D83E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {30055BE4-5900-4166-97FB-A3ED921A766E}
+	EndGlobalSection
+EndGlobal

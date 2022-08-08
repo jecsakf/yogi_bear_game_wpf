@@ -1,0 +1,77 @@
+﻿<Window x:Class="YogiBearGame.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="YogiBearGame" Height="580" Width="500">
+    <Window.InputBindings>
+        <!-- billentyűparancsok megfelelő paraméterrel -->
+        <KeyBinding Key="A" Command="{Binding KeyDownCommand}" CommandParameter="A" />
+        <KeyBinding Key="W" Command="{Binding KeyDownCommand}" CommandParameter="W" />
+        <KeyBinding Key="S" Command="{Binding KeyDownCommand}" CommandParameter="S" />
+        <KeyBinding Key="D" Command="{Binding KeyDownCommand}" CommandParameter="D" />
+    </Window.InputBindings>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0">
+            <MenuItem Header="File">
+                <MenuItem Name="newGameMenuItem" Header="New game" Command="{Binding NewGameCommand}" />
+                <Separator />
+                <MenuItem Header="Load gametables.." Command="{Binding LoadGameTablesCommand}" />
+                <Separator />
+                <MenuItem Header="Exit" Command="{Binding ExitCommand}" />
+            </MenuItem>
+            <MenuItem Header="Settings">
+                <MenuItem Name="smallCheckbox" Header="Small table" IsCheckable="True" IsChecked="{Binding IsGameTableSmall}" IsEnabled="{Binding IsSmallTableLoaded}"/>
+                <MenuItem Name="mediumCheckbox" Header="Medium table" IsCheckable="True" IsChecked="{Binding IsGameTableMedium}" IsEnabled="{Binding IsMediumTableLoaded}"/>
+                <MenuItem Name="largeCheckbox" Header="Large table" IsCheckable="True" IsChecked="{Binding IsGameTableLarge}" IsEnabled="{Binding IsLargeTableLoaded}"/>
+            </MenuItem>
+            <MenuItem Header="Time">
+                <MenuItem Name="startMenuItem" Header="Start" Command="{Binding StartStopCommand}"/>
+                <MenuItem Name="stopMenuItem" Header="Stop" Command="{Binding StartStopCommand}"/>
+            </MenuItem>
+        </Menu>
+        <ItemsControl Grid.Row="1" ItemsSource="{Binding Fields}" Visibility="{Binding IsGameNotStarted}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="{Binding GameTableSize}" Columns="{Binding GameTableSize}" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button CommandParameter="{Binding Number}" Focusable="False" Background="LightGreen">
+                        <Image Source="{Binding Image}" Stretch="Uniform"/>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            <ItemsControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Grid.Row" Value="{Binding X}" />
+                    <Setter Property="Grid.Column" Value="{Binding Y}" />
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>
+                <TextBlock Text="Picked baskets count: " />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding PickedBasketsCount}" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem>
+                <TextBlock Text="Game time: " />
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBlock Text="{Binding GameTime}" />
+            </StatusBarItem>
+            <Separator />
+            <StatusBarItem />
+        </StatusBar>
+    </Grid>
+</Window>
